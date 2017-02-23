@@ -3,7 +3,12 @@
 var encrypt = function(input) {
 
   var inputArray = input.toLowerCase().match(/[a-z]/g);
-  console.log(inputArray);
+  var inputLength = inputArray.length;
+  if (Number.isInteger(Math.sqrt(inputLength))) {
+    console.log("Square!");
+  } else {
+    console.log("NOT A SQuare");
+  }
 
   return result;
 }
