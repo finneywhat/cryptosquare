@@ -1,14 +1,29 @@
 // Back-end
 
 var encrypt = function(input) {
-
+  var rows = 0;
+  var columns = 0;
+  var roundedSq = 0;
   var inputArray = input.toLowerCase().match(/[a-z]/g);
   var inputLength = inputArray.length;
-  if (Number.isInteger(Math.sqrt(inputLength))) {
-    console.log("Square!");
+  var sq = Math.sqrt(inputLength);
+  if (Number.isInteger(sq)) {
+    rows = sq;
+    columns = sq;
   } else {
-    console.log("NOT A SQuare");
+
+    var roundedSq = Math.round(sq);
+    if (roundedSq < sq) {
+      rows = roundedSq + 1;
+    } else {
+      rows = roundedSq;
+    }
+    columns = roundedSq;
   }
+  console.log(sq);
+  console.log(roundedSq);
+  console.log(rows);
+  console.log(columns);
 
   return result;
 }
