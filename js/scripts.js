@@ -14,16 +14,37 @@ var encrypt = function(input) {
 
     var roundedSq = Math.round(sq);
     if (roundedSq < sq) {
-      rows = roundedSq + 1;
+      columns = roundedSq + 1;
     } else {
-      rows = roundedSq;
+      columns = roundedSq;
     }
-    columns = roundedSq;
+    rows = roundedSq;
   }
-  console.log(sq);
-  console.log(roundedSq);
-  console.log(rows);
-  console.log(columns);
+
+
+  var smushString = "";
+  for (var j = 0; j < columns; j++) {
+    for (var i = 0; i < (inputLength - j); i += columns) {
+      smushString = smushString.concat(inputArray[i + j]);
+    }
+  }
+debugger;
+  var result = "";
+  var resultArray = smushString.split("");
+  console.log(resultArray);
+  for (var j = 0; j < inputLength; j += 5) {
+    for (var i = 0; i < 5; i++) {
+      if (resultArray[i + j]) {
+        result = result.concat(resultArray[i + j]);
+      }
+    }
+    result = result.concat(" ");
+  }
+  console.log(resultArray);
+
+
+
+
 
   return result;
 }
